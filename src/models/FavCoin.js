@@ -1,4 +1,4 @@
-const { DataTypes } = require('sequelize');
+const { DataTypes } = require("sequelize");
 // Exportamos una funcion que define el modelo
 // Luego le injectamos la conexion a sequelize.
 module.exports = (sequelize) => {
@@ -10,15 +10,15 @@ module.exports = (sequelize) => {
       primaryKey: true,
     },
     coin: {
-      type: DataTypes.ENUM("bitcoin", "ethereum", "litecoin", "tron" ),
+      type: DataTypes.ENUM("bitcoin", "ethereum", "litecoin", "tron"),
       allowNull: false,
     },
     amount: {
-      type: DataTypes.TEXT,
+      type: DataTypes.FLOAT,
       allowNull: false,
     },
     ticker: {
-      type: DataTypes.ENUM("btc", "eth", "ltc", "trx")
+      type: DataTypes.ENUM("btc", "eth", "ltc", "trx"),
     },
   });
 };

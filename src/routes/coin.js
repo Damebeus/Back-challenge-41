@@ -22,7 +22,49 @@ router.get("/crypto/:ticker", async (req, res) => {
     console.log(error);
   }
 });
+router.get("/allCrypto", async (req, res) => {
+  try {
+    let bitcoin = await axios.get(`https://api.cryptapi.io/btc/info/?prices=1`);
+    let ethereum = await axios.get(
+      `https://api.cryptapi.io/eth/info/?prices=1`
+    );
+    let litecoin = await axios.get(
+      `https://api.cryptapi.io/ltc/info/?prices=1`
+    );
+    let tron = await axios.get(`https://api.cryptapi.io/trx/info/?prices=1`);
 
+    const apiCoin = [
+      {
+        logo: bitcoin.data.logo,
+        coin: bitcoin.data.coin,
+        ticker: bitcoin.data.ticker,
+        prices: bitcoin.data.prices,
+      },
+      {
+        logo: ethereum.data.logo,
+        coin: ethereum.data.coin,
+        ticker: ethereum.data.ticker,
+        prices: ethereum.data.prices,
+      },
+      {
+        logo: litecoin.data.logo,
+        coin: litecoin.data.coin,
+        ticker: litecoin.data.ticker,
+        prices: litecoin.data.prices,
+      },
+      {
+        logo: tron.data.logo,
+        coin: tron.data.coin,
+        ticker: tron.data.ticker,
+        prices: tron.data.prices,
+      },
+    ];
+
+    return res.send(apiCoin);
+  } catch (error) {
+    console.log(error);
+  }
+});
 router.get("/favcoin", async (req, res) => {
   try {
     let coin = await FavCoin.findAll();
@@ -46,8 +88,6 @@ router.post("/", (req, res) => {
   } else {
     return res.status(400).send("Please, insert the information correctly");
   }
-
-  return res.status(200).json(favCrypto);
 });
 
 router.delete("/delete/:id", async (req, res) => {
@@ -64,4 +104,5 @@ router.delete("/delete/:id", async (req, res) => {
     console.log(error);
   }
 });
+
 module.exports = router;
