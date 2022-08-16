@@ -14,7 +14,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     amount: {
-      type: DataTypes.TEXT,
+      type: DataTypes.FLOAT,
       allowNull: false,
     },
     ticker: {
