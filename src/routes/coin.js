@@ -35,30 +35,30 @@ router.get("/allCrypto", async (req, res) => {
 
     const apiCoin = [
       {
-        logo: bitcoin.data.logo,
-        coin: bitcoin.data.coin,
-        ticker: bitcoin.data.ticker,
-        prices: bitcoin.data.prices,
+        logo : bitcoin.data.logo,
+        coin : bitcoin.data.coin,
+        ticker : bitcoin.data.ticker,
+        prices: parseFloat(bitcoin.data.prices.USD).toFixed(2)
       },
       {
-        logo: ethereum.data.logo,
-        coin: ethereum.data.coin,
-        ticker: ethereum.data.ticker,
-        prices: ethereum.data.prices,
+        logo : ethereum.data.logo,
+        coin : ethereum.data.coin,
+        ticker : ethereum.data.ticker,
+        prices: parseFloat(ethereum.data.prices.USD).toFixed(2)
       },
       {
-        logo: litecoin.data.logo,
-        coin: litecoin.data.coin,
-        ticker: litecoin.data.ticker,
-        prices: litecoin.data.prices,
+        logo : litecoin.data.logo,
+        coin : litecoin.data.coin,
+        ticker : litecoin.data.ticker,
+        prices: parseFloat(litecoin.data.prices.USD).toFixed(2)
       },
       {
-        logo: tron.data.logo,
-        coin: tron.data.coin,
-        ticker: tron.data.ticker,
-        prices: tron.data.prices,
-      },
-    ];
+        logo : tron.data.logo,
+        coin : tron.data.coin,
+        ticker : tron.data.ticker,
+        prices: parseFloat(tron.data.prices.USD).toFixed(2)
+      }
+    ]
 
     return res.send(apiCoin);
   } catch (error) {
