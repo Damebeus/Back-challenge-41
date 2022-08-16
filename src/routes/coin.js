@@ -16,7 +16,7 @@ router.get("/crypto/:ticker", async (req, res) => {
       logo: apiUrl.data.logo,
       coin: apiUrl.data.coin,
       ticker: apiUrl.data.ticker.toUpperCase(),
-      prices: parseFloat(ethereum.data.prices.USD).toFixed(2),
+      prices: parseFloat(apiUrl.data.prices.USD).toFixed(2),
     };
     return res.send(apiCoin);
   } catch (error) {
