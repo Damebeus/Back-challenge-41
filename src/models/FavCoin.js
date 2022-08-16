@@ -10,15 +10,15 @@ module.exports = (sequelize) => {
       primaryKey: true,
     },
     coin: {
-      type: DataTypes.ENUM("bitcoin", "ethereum", "litecoin", "tron"),
+      type: DataTypes.ENUM("Bitcoin", "Ethereum", "Litecoin", "TRX"),
       allowNull: false,
     },
     amount: {
-      type: DataTypes.FLOAT,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     ticker: {
-      type: DataTypes.ENUM("btc", "eth", "ltc", "trx"),
+      type: DataTypes.ENUM("BTC", "ETH", "LTC", "TRX"),
     },
   });
 };
